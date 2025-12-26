@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi người đặc biệt của anh/em ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+            overflow: hidden; /* Để hiệu ứng trái tim không tràn ra ngoài */
+            position: relative;
+            color: #5a3e3e;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .heart-button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        .heart-button:hover {
+            background-color: #d81b60;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.6);
+        }
+
+        /* Hiệu ứng trái tim rơi */
+        .heart {
+            position: absolute;
+            background: #e91e63;
+            transform: rotate(-45deg);
+            animation: fall linear infinite;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #e91e63;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -50%;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 50%;
+            top: 0;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(-45deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(-45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❤️ Gửi người đặc biệt của anh ❤️</h1>
+        <p>Từ lần đầu tiên anh gặp em, trái tim này đã biết rằng có điều gì đó thật khác biệt.</p>
+        <p>Mỗi khoảnh khắc đc nhắn với e đều là những kỷ niệm tuyệt vời nhất mà anh trân trọng.</p>
+        <p>Anh chỉ muốn nói rằng... anh yêu em rất rất rất rấ rất rất nhiều!</p>
+        <p>Hy vọng chúng ta sẽ có thật nhiều khoảnh khắc đẹp cùng nhau.</p>
+        <button class="heart-button" onclick="alert('Anh yêu em! 🥰')">
+            Nhấn vào đây!🥰💖
+        </button>
+    </div>
+
+    <script>
+        // Tạo hiệu ứng trái tim rơi
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            document.body.appendChild(heart);
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // 3-5 seconds
+            heart.style.width = Math.random() * 10 + 10 + 'px'; // 10-20px
+            heart.style.height = heart.style.width;
+
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        setInterval(createHeart, 300); // Tạo một trái tim mỗi 300ms
+    </script>
+</body>
+</html>
